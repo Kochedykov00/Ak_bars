@@ -38,7 +38,7 @@ public class StudentDAOImpl implements StudentDAO {
 
         try {
             Connection connection = helpers.Database.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT MAX() OVER () FROM students GROUP BY avg_score");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT count(*) FROM students where avg_score = (select MIN(avg_score) from students)");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -59,7 +59,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     try {
         Connection connection = helpers.Database.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT count(*)) OVER () FROM students GROUP BY avg_score;");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT count(*) FROM students where avg_score = (select MAX(avg_score) from students)");
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {

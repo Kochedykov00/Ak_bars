@@ -10,7 +10,7 @@ public interface AlarmClockInterface {
 
     void turnOn();
     void turnOff();
-    public void setUp(Date date);
+    public void setUp(String date);
     void stop();
     Date showTime();
 
