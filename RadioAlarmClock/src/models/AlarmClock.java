@@ -86,10 +86,7 @@ public class AlarmClock implements AlarmClockInterface {
         this.isActive = false;
     }
 
-    @Override
-    public void setUp(Date date) {
-        this.time = time;
-    }
+
 
     @Override
     public void stop() {

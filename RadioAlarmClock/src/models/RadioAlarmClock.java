@@ -41,9 +41,8 @@ public class RadioAlarmClock implements RadioAlarmInterface {
     }
 
     @Override
-    public void setUp(String wave, Date date) {
+    public void setUp(String wave) {
         this.wave = wave;
-        this.time = date;
     }
 
     @Override
